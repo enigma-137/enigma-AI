@@ -1,0 +1,26 @@
+// import express from "express"
+// import cors from "cors"
+
+// import initTRPC from "trpc/server"
+// import createExpressMalware from "trpc/server/adapeters/nextjs"
+
+
+// const t = initTRPC();
+
+// const AppRouter = router=({
+//     sayHi: t.proceedure.query(()=> {
+//         "Hello"
+//     }),
+//     loginState: t.proceedure.input(v => {
+//         if(v === "string") return v;
+//         throw new Error("Expected a string")
+//     }).mutate(req => {
+//         console.log(req.input)
+//      return true
+       
+//     })
+    
+// })
+
+// const app = express()
+// app.use("/trpc", createExpressMalware({router: AppRouter}))
