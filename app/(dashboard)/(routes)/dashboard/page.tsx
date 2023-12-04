@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
-import { ArrowRight, Code2, Image, MessageSquare, Music2, ShoppingBasket, Video } from "lucide-react"
+import { ArrowRight, Code2, Image, Languages, MessageSquare, Music2, ShoppingBasket, SunMediumIcon, Video } from "lucide-react"
 
 const tools = [
   {
@@ -22,14 +22,7 @@ const tools = [
     bgColor: "bg-violet-500/10"
 
   },
-  {
-    label: "Music Generation",
-    icon: Music2,
-    color: "text-emerald-500",
-    href: "/music",
-    bgColor: "bg-violet-500/10"
 
-  },
   {
     label: "Image Generation",
     icon: Image,
@@ -39,10 +32,18 @@ const tools = [
 
   },
   {
-    label: "Video Generation",
-    icon: Video,
-    color: "text-green-500",
-    href: "/video",
+    label: "Language Translator",
+    icon: Languages,
+    color: "text-emerald-700",
+    href: "/translator",
+    bgColor: "bg-violet-500/10"
+
+  },
+  {
+    label: "Text Summarizer",
+    icon: SunMediumIcon,
+    color: "text-yellow-700",
+    href: "/summary",
     bgColor: "bg-violet-500/10"
 
   },
