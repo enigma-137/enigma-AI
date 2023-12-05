@@ -118,7 +118,7 @@ const Translator = () => {
           )}
           {messages.length === 0 && !isLoading && (
             <div>
-              <Empty label="No Conversation started yet" />
+              <Empty label="No text to be translated yet" />
             </div>
           )}
           <div className="flex flex-col-reverse gap-y-4 ">

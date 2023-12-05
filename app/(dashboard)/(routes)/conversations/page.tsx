@@ -88,9 +88,9 @@ const Conversation = () => {
 
                 </FormItem>
               )} />
-              <Button variant="ghost" className="col-span-12 lg:col-span-2 w-full" disabled={isLoading} >
-                <SendHorizonalIcon />
-                {/* Generate */}
+              <Button variant="default" className="col-span-12 lg:col-span-2 w-full" disabled={isLoading} >
+            
+                Send <SendHorizonalIcon className="ml-2 h4 w-4"/>
 
               </Button>
             </form>
