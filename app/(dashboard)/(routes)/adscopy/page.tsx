@@ -67,7 +67,7 @@ const Adscopy = () => {
       const newMessages = [...messages, userMessage];
 
       //5 create the post api request and assign an object messages to be new messages
-      const response = await axios.post("/api/conversation", {
+      const response = await axios.post("/api/adscopy", {
         messages: newMessages,
       })
       // 6 setmessages carry and arrow function with current and array, carrying the current, userM, and response
