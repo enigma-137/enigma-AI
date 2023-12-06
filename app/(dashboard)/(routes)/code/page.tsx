@@ -22,6 +22,7 @@ import { BotAvatar } from "@/components/bot-avatar"
 
 
 import ReactMarkdown from "react-markdown"
+import { useProModal } from "@/hooks/use-pro-model"
 
 type ChatCompletionMessageParam = {
   role: string;
@@ -31,6 +32,8 @@ type ChatCompletionMessageParam = {
 
 
 const Code = () => {
+
+  const proModal = useProModal()
 
   const router = useRouter()
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([])
@@ -64,7 +67,9 @@ const Code = () => {
     }
     catch (error: any) {
       // pro model
-      console.log(error)
+      if(error?.response?.status === 403){
+        proModal.onOpen()
+               }
 
     } finally {
       router.refresh()

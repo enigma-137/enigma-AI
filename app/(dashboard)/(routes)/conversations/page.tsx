@@ -19,6 +19,7 @@ import { Loader } from "@/components/loader"
 import { cn } from "@/lib/utils"
 import { UseAvatar } from "@/components/user-avatar"
 import { BotAvatar } from "@/components/bot-avatar"
+import { useProModal } from "@/hooks/use-pro-model"
 
 type ChatCompletionMessageParam = {
   role: string;
@@ -29,6 +30,7 @@ type ChatCompletionMessageParam = {
 
 const Conversation = () => {
 
+  const proModal = useProModal()
   const router = useRouter()
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([])
   // 1. Create a form, assign its type z.infer of the schema with an object default values of a prompt
@@ -60,8 +62,10 @@ const Conversation = () => {
       form.reset();
     }
     catch (error: any) {
-      // pro model
-      console.log(error)
+      // pro modal
+       if(error?.response?.status === 403){
+proModal.onOpen()
+       }
 
     } finally {
       router.refresh()

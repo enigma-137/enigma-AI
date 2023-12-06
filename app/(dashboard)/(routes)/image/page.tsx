@@ -16,10 +16,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { Empty } from "@/components/empty"
 import { Loader } from "@/components/loader"
-import { cn } from "@/lib/utils"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardFooter } from "@/components/ui/card"
 import { Download, ImageDown } from "lucide-react"
+import { useProModal } from "@/hooks/use-pro-model"
 
 
 
@@ -28,6 +28,7 @@ import { Download, ImageDown } from "lucide-react"
 const ImagePage = () => {
 
   const router = useRouter()
+  const proModal = useProModal()
 
   const [images, setImages] = useState<string[]>([])
 
@@ -53,8 +54,9 @@ const ImagePage = () => {
     
     }
     catch (error: any) {
-      // pro model
-      console.log(error)
+      if(error?.response?.status === 403){
+        proModal.onOpen()
+               }
 
     } finally {
       router.refresh()

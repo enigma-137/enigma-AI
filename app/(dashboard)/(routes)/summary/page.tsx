@@ -21,6 +21,7 @@ import { UseAvatar } from "@/components/user-avatar"
 import { BotAvatar } from "@/components/bot-avatar"
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useProModal } from "@/hooks/use-pro-model"
 
 
 
@@ -32,6 +33,8 @@ type ChatCompletionMessageParam = {
 
 
 const Summarizer = () => {
+
+  const proModal = useProModal()
 
   const [copied, setCopied] = useState(false);
 
@@ -72,8 +75,9 @@ const Summarizer = () => {
   
     }
     catch (error: any) {
-      // pro model
-      console.log(error)
+      if(error?.response?.status === 403){
+        proModal.onOpen()
+               }
 
     } finally {
       router.refresh()
