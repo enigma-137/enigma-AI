@@ -12,7 +12,7 @@ const openai = new OpenAI({
 
 const intructionMessage: ChatCompletionMessageParam = {
   role: "system",
-  content: "You are a marketing ads copy generator, you must write only marketable ads copy based the information provided"
+  content: "You are a language translator, you translate any text given to the language provided or to English if no text is given, Your role is to translate alone"
 }
 
 // call API
@@ -50,7 +50,6 @@ export async function POST(req: Request) {
 
 
     await increaseApiLimit();
-
     return NextResponse.json(response.choices[0].message);
   } catch (error) {
     console.log("Code error", error);
