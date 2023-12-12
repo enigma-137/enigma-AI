@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils"
 import { UseAvatar } from "@/components/user-avatar"
 import { BotAvatar } from "@/components/bot-avatar"
 import { useProModal } from "@/hooks/use-pro-model"
+import toast from "react-hot-toast"
 
 type ChatCompletionMessageParam = {
   role: string;
@@ -63,9 +64,11 @@ const Conversation = () => {
     }
     catch (error: any) {
       // pro modal
-       if(error?.response?.status === 403){
-proModal.onOpen()
-       }
+      if (error?.response?.status === 403) {
+        proModal.onOpen()
+      } else {
+        toast.error("Something went wrong")
+      }
 
     } finally {
       router.refresh()
@@ -93,8 +96,8 @@ proModal.onOpen()
                 </FormItem>
               )} />
               <Button variant="default" className="col-span-12 lg:col-span-2 w-full" disabled={isLoading} >
-            
-                Send <SendHorizonalIcon className="ml-2 h4 w-4"/>
+
+                Send <SendHorizonalIcon className="ml-2 h4 w-4" />
 
               </Button>
             </form>

@@ -87,7 +87,7 @@ export const ProModal = ()=> {
         </DialogDescription>
     </DialogHeader>
     <DialogFooter> 
-        <Button variant="premium" size="lg" className="w-full"> Upgrade <Zap className="ml-2 fill-white h-5 w-5" /></Button>
+        <Button onClick={()=> window.open("/settings")} variant="premium" size="lg" className="w-full"> Upgrade <Zap className="ml-2 fill-white h-5 w-5" /></Button>
     </DialogFooter>
 </DialogContent>
        </Dialog>

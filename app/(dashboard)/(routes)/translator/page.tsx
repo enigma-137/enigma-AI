@@ -22,6 +22,7 @@ import { BotAvatar } from "@/components/bot-avatar"
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useProModal } from "@/hooks/use-pro-model"
+import toast from "react-hot-toast"
 
 
 
@@ -79,7 +80,9 @@ const Translator = () => {
       // pro model
       if(error?.response?.status === 403){
         proModal.onOpen()
-               }
+      }else{
+        toast.error("Something went wrong")
+       }
     } finally {
       router.refresh()
     }
