@@ -39,7 +39,7 @@ const LandingContent = () => {
       <div> 
       <h1 className="text-center py-24 lg:text-[40px]"> Frequently <span className="font-bold bg-gradient-to-r from-pink-600 to-purple-900">Asked Questions</span> </h1>
         </div>  
-  <div className="px-24">
+  <div className="p-12">
   <Accordion type="multiple">
   <AccordionItem value="item-1">
     <AccordionTrigger className="text-sm lg:text-lg text-left">Is it Free?</AccordionTrigger>

@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
-import { ArrowRight, Code2, Image, Languages, MessageSquare, Music2, ShoppingBasket, SunMediumIcon, Video } from "lucide-react"
+import { ArrowRight, Code2, Image, Languages, MessageSquare, ShoppingBasket, SunMediumIcon, Video } from "lucide-react"
 
 const tools = [
   {
