@@ -27,7 +27,7 @@ const LandingHero = () => {
     </div>
 
     <Link  href={isSignedIn ? "/dashboard" : "/sign-up"}>
-        <Button className='mt-14 font-bold md:text-lg p-4 md:p-6' variant="premium">{isSignedIn ? "Continue to dashboard" : "Start Generating for free"}</Button>
+        <Button className='mt-14 font-bold md:text-lg p-4 md:p-6' variant="premium">Start Generating for free</Button>
     </Link>
     </div>
   )

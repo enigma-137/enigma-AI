@@ -1,50 +1,47 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
+import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// call API
-export async function POST(req: Request) {
+const instructionMessage: ChatCompletionMessageParam = {
+  role: "system",
+  content: "Answer questions as short and quickly as possible. You must do it under 75 tokens."
+}
+
+export async function POST(
+  req: Request
+) {
   try {
-    // check for user
     const { userId } = auth();
     const body = await req.json();
-    const { messages } = body;
+    const { messages  } = body;
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    // check for openAi Key
     if (!openai.apiKey) {
-      return new NextResponse("OpenAI Api Key not Configured", { status: 500 });
+      return new NextResponse("OpenAI API Key not configured.", { status: 500 });
     }
 
     if (!messages) {
       return new NextResponse("Messages are required", { status: 400 });
     }
 
-    const freeTrial = await checkApiLimit()
-
-    if(!freeTrial) {
-      return new NextResponse("Free trial is expired", {status: 403})
-    }
-    // Get response
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages,
+      max_tokens: 75,
+      temperature: 0.5,
+      messages: [instructionMessage, ...messages]
     });
-
-    await increaseApiLimit()
-
+    
     return NextResponse.json(response.choices[0].message);
   } catch (error) {
-    console.log("Conversational error", error);
-
+    console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
   }
-}
+};
