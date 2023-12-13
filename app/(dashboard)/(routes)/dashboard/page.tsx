@@ -66,20 +66,20 @@ const DashboardPage = () => {
     <div>
     <div className="mb-4 space-y-4">
       <h2 className="text-2xl md:text-4xl font-bold text-center">
-        Explore the power of AI
+        An all in one AI Platform
       </h2>
 
 
-      <p className="text-muted-foreground font-light text-sm md:text-lg text-center "> Chat with the smartest AI - Experience the power of AI</p>
+      <p className="text-muted-foreground font-light text-sm md:text-lg text-center "> Increase your productivity with of AI</p>
     </div>
-    <div className="px-4 md:px-20 lg:px-32 space-y-4">
+    <div className="px-4 md:px-20 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:px-32 space-y-4">
        {
         tools.map((tool) => (
           <Card 
           onClick={()=> router.push(tool.href)}
           key={tool.href} 
          
-          className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer ">
+          className="p-4 border-black/5 flex items-center h-64 w-64 bg-slate-300 justify-between hover:shadow-md transition cursor-pointer ">
           <div className="flex items-center gap-x-4">
             <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
               <tool.icon className={cn("w-8 h-8", tool.color)} />

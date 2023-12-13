@@ -70,13 +70,13 @@ const LandingContent = () => {
          {testimonials.map((testimonial) => (
             <Card key={testimonial.description} className="bg-[#192339] border-none text-white">
                 <CardHeader>
-                    <CardTitle className=" flex items-center gap-x-2">
+                    <CardTitle className=" flex items-center justify-between gap-x-2">
                       <div>
                         <p className="text-lg" >{testimonial.name}</p>
                         <p className="text-sm text-zinc-400">{testimonial.title}</p>
                        
                       </div>
-                      <p className="text-right ml-24 font-extrabold rounded-full bg-gradient-to-r from-pink-600 to-purple-900 ">{testimonial.avatar}</p>
+                      <p className="p-2 font-extrabold rounded-full bg-gradient-to-r from-pink-600 to-purple-900 ">{testimonial.avatar}</p>
                     </CardTitle>
                     <CardContent className="pt-4 px-0"> 
                         {testimonial.description}
