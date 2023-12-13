@@ -26,10 +26,10 @@ const testimonials = [
         description: "I have been using the ads copy generator to generate ads seamlessly for my products and it has been awesome"
     },
     {
-        name: "Itunu", 
-        avatar: "I",
-        title: "Trader",
-        description: "As a trader, I used the Ai to generate sales content "
+        name: "ZEE", 
+        avatar: "Z",
+        title: "Student",
+        description: "The language translator helped in translating other languages to English and gave a well detailed meaning about the word "
     }
 
 ]
@@ -87,6 +87,8 @@ const LandingContent = () => {
          ))}
       </div>
      </div>
+
+   
 
     </div>
   )
