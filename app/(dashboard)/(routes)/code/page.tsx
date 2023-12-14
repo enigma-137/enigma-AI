@@ -38,7 +38,8 @@ const Code = () => {
 
   const router = useRouter()
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([])
-  // 1. Create a form, assign its type z.infer of the schema with an object default values of a prompt
+
+  // Create a form with useForm, assign its type z.infer with a typeOf schema with a resolver of form schema and an object with a default values of the empty prompt
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,33 +47,33 @@ const Code = () => {
     }
   })
 
-  //  2 create the loading state and create the onSubmit function
+  //  create the loading state and create the onSubmit function
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      // 3. Create an Object with the type completion message with some keyV pairs role & value content
+      //  Create an Object with the type completion message with some keyV pairs role & value content
       const userMessage: ChatCompletionMessageParam = {
         role: "user",
         content: values.prompt,  //user message
       }
-      // 4. create an array using all existing messages and then the new user message
+      // create an array using all existing messages and then the new user message
       const newMessages = [...messages, userMessage];
 
-      //5 create the post api request and assign an object messages to be new messages
+      //create the post api request and assign an object messages to be new messages
       const response = await axios.post("/api/code", {
         messages: newMessages,
       })
-      // 6 setmessages carry and arrow function with current and array, carrying the current, userM, and response
+      // setmessages carry an arrow function with current and array, carrying the current, userM, and response
       setMessages((curent) => [...curent, userMessage, response.data]);
       form.reset();
     }
     catch (error: any) {
       // pro model
-      if(error?.response?.status === 403){
+      if (error?.response?.status === 403) {
         proModal.onOpen()
-      }else{
+      } else {
         toast.error("Something went wrong")
-       }
+      }
 
     } finally {
       router.refresh()
@@ -116,7 +117,7 @@ const Code = () => {
           )}
           {messages.length === 0 && !isLoading && (
             <div>
-              <Empty label="No Conversation started yet" />
+              <Empty label="No Code generated yet" />
             </div>
           )}
           <div className="flex flex-col-reverse gap-y-4 ">
@@ -126,22 +127,15 @@ const Code = () => {
                   key={message.content}
                   className={cn("p-8 w-full flex gap-x-8 items-start rounded-lg",
                     message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
-                  )}
-
-
-
-
-                >
+                  )} >
                   {message.role === "user" ? <UseAvatar /> : <BotAvatar />}
-
-
 
 
                   <ReactMarkdown
                     components={{
                       pre: ({ node, ...props }) => (
                         <div className=" overflow-auto w-full my-2 bg-black text-white p-2 rounded-lg ">
-                          
+
                           <pre {...props} />
                         </div>
                       ),

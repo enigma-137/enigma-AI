@@ -42,24 +42,24 @@ const Conversation = () => {
     }
   })
 
-  //  2 create the loading state and create the onSubmit function
+  //  create the loading state and create the onSubmit function
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      // 3. Create an Object with the type completion message with some keyV pairs role & value content
+      //  Create an Object with the type completion message with some keyV pairs role & value content
       const userMessage: ChatCompletionMessageParam = {
         role: "user",
         content: values.prompt,  //user message
       }
-      // 4. create an array using all existing messages and then the new user message
+      // . create an array using all existing messages and then the new user message
       const newMessages = [...messages, userMessage];
 
-      //5 create the post api request and assign an object messages to be new messages
+      // create the post api request and assign an object messages to be new messages
       const response = await axios.post("/api/conversation", {
         messages: newMessages,
       })
-      // 6 setmessages carry and arrow function with current and array, carrying the current, userM, and response
-      setMessages((curent) => [...curent, userMessage, response.data]);
+      //  setmessages carry and arrow function with current and array, carrying the current, userM, and response
+      setMessages((curent) => [...curent, response.data, userMessage,]);
       form.reset();
     }
     catch (error: any) {
@@ -79,31 +79,7 @@ const Conversation = () => {
     <div>
       <Heading title="Conversations" description="Feel free to ask me any question" icon={MessageSquare} iconColor="text-violet-500" bgColor="bg-violet-500/10" />
       <div className="px-4 lg:px-8">
-        <div>
-          <Form {...form} >
-            <form onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg px-3 border w-full md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
-            >
-              <FormField name="prompt" render={({ field }) => (
-                // field > item > control > input 
-                <FormItem className=" col-span-12 lg:col-span-10" >
-                  <FormControl className="m-0 p-0">
-                    <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent  "
-                      disabled={isLoading}
-                      placeholder="How do I calculate the area of a trapezium? " {...field} />
-                  </FormControl>
-
-                </FormItem>
-              )} />
-              <Button variant="default" className="col-span-12 lg:col-span-2 w-full" disabled={isLoading} >
-
-                Send <SendHorizonalIcon className="ml-2 h4 w-4" />
-
-              </Button>
-            </form>
-
-          </Form>
-        </div>
+       
         <div className="space-y-4 mt-4">
           {isLoading && (
             <div className=" p-8 rounded-lg w-full items-center justify-center bg-muted">
@@ -121,11 +97,8 @@ const Conversation = () => {
                 <div
                   key={message.content}
                   className={cn("p-8 w-full flex gap-x-8 items-start rounded-lg",
-                    message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
+                    message.role === "user" ? "bg-purple-200 font-medium border border-black/10" : "bg-muted font-medium"
                   )}
-
-
-
 
                 >
                   {message.role === "user" ? <UseAvatar /> : <BotAvatar />}
@@ -137,6 +110,35 @@ const Conversation = () => {
             }
 
           </div>
+        </div>
+
+        <div className="py-9 sticky">
+          <Form {...form} >
+            <form onSubmit={form.handleSubmit(onSubmit)}
+              className="rounded-lg px-3 border w-full md:px-6 focus-within:shadow-sm flex justify-between gap-2"
+            >
+              <FormField name="prompt" render={({ field }) => (
+                // field > item > control > input 
+                <FormItem className=" col-span-12 lg:col-span-12 w-full" >
+                  <FormControl className="m-0 p-0">
+                    <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent w-full  "
+                      disabled={isLoading}
+                      placeholder="How do I calculate the area of a trapezium? " {...field} />
+                  </FormControl>
+
+                </FormItem>
+              )} />
+              <div>
+              <Button variant="default" className="lg:col-span-12 lg:w-full w-full   " disabled={isLoading} >
+              <SendHorizonalIcon className="ml-2 h-6 w-6" />
+
+              </Button>
+
+              </div>
+            
+            </form>
+
+          </Form>
         </div>
       </div>
     </div>
