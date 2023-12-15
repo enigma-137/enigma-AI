@@ -34,6 +34,7 @@
     "react-hot-toast": "^2.4.1",
     "react-markdown": "^9.0.1",
     "react-simple-typewriter": "^5.0.1",
+    "react-tilt": "^1.0.2",
     "replicate": "^0.22.0",
     "stripe": "^14.7.0",
     "tailwind-merge": "^2.0.0",

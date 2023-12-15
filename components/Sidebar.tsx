@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Montserrat } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
-import { Code, ImageIcon, Languages, LayoutDashboard, MessageSquare, Music2, Settings, ShoppingBasket, SunIcon, VideoIcon } from "lucide-react"
+import { Code, ImageIcon, Languages, LayoutDashboard, MessageSquare, Music2, Settings, ShoppingBasket, SunIcon, Twitter, VideoIcon, Youtube } from "lucide-react"
 import { FreeCounter } from "./free-counter"
 
 
@@ -37,18 +37,31 @@ const routes = [
     color: "text-pink-500",
 
   },
-  {
-    label: "Image Generator",
-    href: "/image",
-    icon: ImageIcon,
-    color: "text-orange-700",
+  // {
+  //   label: "Image Generator",
+  //   href: "/image",
+  //   icon: ImageIcon,
+  //   color: "text-orange-700",
 
+  // },
+  {
+    label: "Tweet Idea Generation",
+    icon: Twitter,
+    color: "text-blue-700",
+    href: "/twitter",
   },
   {
     label: "Language Translator",
     href: "/translator",
     icon: Languages,
     color: "text-emerald-700",
+
+  },
+  {
+    label: "YouTube Script Generation",
+    icon: Youtube,
+    color: "text-red-800",
+    href: "/youtube",
 
   },
   {

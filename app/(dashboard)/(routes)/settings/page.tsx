@@ -8,7 +8,7 @@ const SettingPage =()=> {
         <div className="">
         <Heading  title="Settings" icon={Settings} description="Manage Account settings" iconColor="text-gray-700" bg-bgColor="text-gray-700/10"/>
 
-        <div className="text-xl font-medium px-9 flex justify-center py-28 "> Your free Trial is expired  Please contact us via  
+        <div className="text-xl font-medium px-9 flex justify-center py-28 ">If your free Trial is expired  Please contact us via  
          <span className="font-medium">
             <Button className="mx-4"> 
             

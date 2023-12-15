@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
-import { ArrowRight, Code2, Image, Languages, MessageSquare, ShoppingBasket, SunMediumIcon, Video } from "lucide-react"
+import { ArrowBigRightDash, ArrowRight, Code2, Image, Languages, MessageSquare, ShoppingBasket, SunMediumIcon, Twitter, Video, YoutubeIcon } from "lucide-react"
 
 const tools = [
   {
@@ -23,12 +23,28 @@ const tools = [
 
   },
 
+  // {
+  //   label: "Image Generation",
+  //   icon: Image,
+  //   color: "text-orange-700",
+  //   href: "/image",
+  //   bgColor: "bg-violet-500/10"
+
+  // },
   {
-    label: "Image Generation",
-    icon: Image,
-    color: "text-orange-700",
-    href: "/image",
-    bgColor: "bg-violet-500/10"
+    label: "Tweet Idea Generation",
+    icon: Twitter,
+    color: "text-blue-700",
+    href: "/twitter",
+    bgColor: "bg-blue-500/10"
+
+  },
+  {
+    label: "YouTube Script Generation",
+    icon: YoutubeIcon,
+    color: "text-red-800",
+    href: "/youtube",
+    bgColor: "bg-red-500/10"
 
   },
   {
@@ -72,14 +88,15 @@ const DashboardPage = () => {
 
       <p className="text-muted-foreground font-light text-sm md:text-lg text-center "> Increase your productivity with AI</p>
     </div>
-    <div className="px-4 md:px-20 lg:px-32 space-y-4">
+    <div className="px-4 md:px-20 lg:px-32 space-y-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
        {
         tools.map((tool) => (
           <Card 
           onClick={()=> router.push(tool.href)}
           key={tool.href} 
          
-          className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer ">
+          className="py-8 px-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer ">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"> */}
           <div className="flex items-center gap-x-4">
             <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
               <tool.icon className={cn("w-8 h-8", tool.color)} />
@@ -87,7 +104,7 @@ const DashboardPage = () => {
            
             <div className="font-semibold"> {tool.label}</div>
           </div>
-          <ArrowRight className="w-5 h-5"/>
+          <ArrowBigRightDash className="w-5 h-5"/>
           </Card>
           
      

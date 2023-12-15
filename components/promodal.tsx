@@ -3,7 +3,7 @@
 import { useProModal } from "@/hooks/use-pro-model"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog"
 import { Badge } from "./ui/badge";
-import { Check, CheckCircle, Code2, Image, Languages, MessageSquare, Music2, ShoppingBasket, SunMediumIcon, Video, Zap } from "lucide-react"
+import { Check, CheckCircle, Code2, Image, Languages, MessageSquare, Music2, ShoppingBasket, SunMediumIcon, TwitterIcon, Video, Youtube, Zap } from "lucide-react"
 import { Card } from "./ui/card";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -24,11 +24,25 @@ const tools = [
 
   },
 
+  // {
+  //   label: "Image Generation",
+  //   icon: Image,
+  //   color: "text-orange-700",
+  //   bgColor: "bg-orange-500/10"
+
+  // },
   {
-    label: "Image Generation",
-    icon: Image,
-    color: "text-orange-700",
-    bgColor: "bg-orange-500/10"
+    label: "Tweet Idea Generation",
+    icon: TwitterIcon,
+    color: "text-blue-700",
+    bgColor: "bg-blue-500/10"
+
+  },
+  {
+    label: "YouTube Script Generation",
+    icon: Youtube,
+    color: "text-red-800",
+    bgColor: "bg-red-500/10"
 
   },
   {

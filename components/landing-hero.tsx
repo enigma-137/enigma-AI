@@ -11,7 +11,7 @@ const LandingHero = () => {
     const isSignedIn = useAuth()
     
       const [text] = useTypewriter({
-        words: ['Conversation', 'Ads Copy Generation', 'Text Summarizing', 'Language Translation' , 'Code Generation',],
+        words: ['Conversation', 'Ads Copy Generation', 'Tweet Generation','Youtube Script Generation',  'Text Summarizing', 'Language Translation' , 'Code Generation',],
         loop: 0
       })
     

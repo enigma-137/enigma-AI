@@ -59,7 +59,7 @@ const Conversation = () => {
         messages: newMessages,
       })
       //  setmessages carry and arrow function with current and array, carrying the current, userM, and response
-      setMessages((curent) => [...curent, response.data, userMessage,]);
+      setMessages((curent) => [ response.data, userMessage, ...curent,]);
       form.reset();
     }
     catch (error: any) {
@@ -76,9 +76,9 @@ const Conversation = () => {
   }
 
   return (
-    <div>
-      <Heading title="Conversations" description="Feel free to ask me any question" icon={MessageSquare} iconColor="text-violet-500" bgColor="bg-violet-500/10" />
-      <div className="px-4 lg:px-8">
+    <div className="flex flex-col h-screen">
+      <Heading title="Chat" description="Feel free to ask me any question" icon={MessageSquare} iconColor="text-violet-500" bgColor="bg-violet-500/10" />
+      <div className=" flex-1 overflow-y-auto  px-4 lg:px-8">
        
         <div className="space-y-4 mt-4">
           {isLoading && (
@@ -96,7 +96,7 @@ const Conversation = () => {
               messages.map((message) => (
                 <div
                   key={message.content}
-                  className={cn("p-8 w-full flex gap-x-8 items-start rounded-lg",
+                  className={cn("p-4 w-full flex gap-x-8 items-start rounded-lg",
                     message.role === "user" ? "bg-purple-200 font-medium border border-black/10" : "bg-muted font-medium"
                   )}
 
@@ -112,7 +112,7 @@ const Conversation = () => {
           </div>
         </div>
 
-        <div className="py-9 sticky">
+        <div className="py-9 bottom-0 sticky">
           <Form {...form} >
             <form onSubmit={form.handleSubmit(onSubmit)}
               className="rounded-lg px-3 border w-full md:px-6 focus-within:shadow-sm flex justify-between gap-2"
