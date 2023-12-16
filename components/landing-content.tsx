@@ -36,7 +36,7 @@ const testimonials = [
 ]
 const LandingContent = () => {
   return (
-    <div className=" px-10 pb-20  text-white py-36">
+    <div className=" px-10 pb-20 py-36">
       <div> 
       <h1 className="text-center py-24 lg:text-[40px]"> Frequently <span className="font-bold bg-gradient-to-r from-pink-600 to-purple-900">Asked Questions</span> </h1>
         </div>  
@@ -65,7 +65,7 @@ const LandingContent = () => {
      
 
      <div className="px-10 py-36"> 
-     <h2 className="text-center text-4xl text-white font-semibold mb-10"><span className="bg-gradient-to-r from-pink-600 to-purple-900 ">Testi</span>monials</h2>
+     <h2 className="text-center text-4xl font-semibold mb-10"><span className="bg-gradient-to-r from-pink-600 to-purple-900 ">Testi</span>monials</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
          {testimonials.map((testimonial) => (

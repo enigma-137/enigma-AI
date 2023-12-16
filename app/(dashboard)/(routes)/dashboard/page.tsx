@@ -79,14 +79,14 @@ const DashboardPage = () => {
 
   const router = useRouter();
   return (
-    <div>
+    <div className=" h-screen">
     <div className="mb-4 space-y-4">
       <h2 className="text-2xl md:text-4xl font-bold text-center">
-        An all in one AI platform
+        An All In One AI Platform
       </h2>
 
 
-      <p className="text-muted-foreground font-light text-sm md:text-lg text-center "> Increase your productivity with AI</p>
+      <p className="font-light text-sm md:text-lg text-center "> Increase your productivity with AI</p>
     </div>
     <div className="px-4 md:px-20 lg:px-32 space-y-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
        {

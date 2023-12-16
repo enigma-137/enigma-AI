@@ -7,6 +7,7 @@ import { useAuth } from "@clerk/nextjs"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ModeToggle } from "./theme"
 
 
 const font = Montserrat({
@@ -26,10 +27,12 @@ export const LandingNavbar =()=> {
             <div className="relative h-8 w-8 mr-2">
                 <Image fill src="/logo.png" alt="logo" />
             </div>
-               <h1 className={cn("text-2xl font-bold text-white", font.className)}>Enigma</h1>
+               <h1 className={cn("text-2xl font-bold", font.className)}>Enigma</h1>
         </Link>
+     
 
         <div className="items-center flex gap-x-2">
+        <ModeToggle />
             <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
                 <Button variant="outline" className="font-bold">
                     { isSignedIn ? 'Dashboard' : 'Get Started'}

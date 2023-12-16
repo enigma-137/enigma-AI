@@ -13,7 +13,7 @@ return (
     <div className="h-full relative">
         
       
-        <div className="hidden h-full md:flex md:w-72 bg-black text-white md:flex-col md:fixed md:inset-y-0">
+        <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0">
            <Sidebar apiLimitCount={apiLimitCount} />
         </div>
         <main className="md:pl-72">
