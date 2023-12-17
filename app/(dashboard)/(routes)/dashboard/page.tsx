@@ -7,7 +7,7 @@ import { ArrowBigRightDash, ArrowRight, Code2, Image, Languages, MessageSquare, 
 
 const tools = [
   {
-    label: "Conversations",
+    label: "Companion",
     icon: MessageSquare,
     color: "text-violet-500",
     href: "/conversations",

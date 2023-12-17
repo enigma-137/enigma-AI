@@ -77,7 +77,7 @@ const Conversation = () => {
 
   return (
     <div className="flex flex-col h-screen">
-      <Heading title="Chat" description="Feel free to ask me any question" icon={MessageSquare} iconColor="text-violet-500" bgColor="bg-violet-500/10" />
+      <Heading title="Companion" description="Feel free to talk to me about anything" icon={MessageSquare} iconColor="text-violet-500" bgColor="bg-violet-500/10" />
       <div className=" flex-1 overflow-y-auto  px-4 lg:px-8">
        
         <div className="space-y-4 mt-4">

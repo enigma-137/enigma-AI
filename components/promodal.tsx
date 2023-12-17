@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 
 const tools = [
   {
-    label: "Conversations",
+    label: "Companion",
     icon: MessageSquare,
     color: "text-violet-500",
     bgColor: "bg-violet-500/10"
