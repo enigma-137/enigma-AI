@@ -21,7 +21,7 @@ const LandingHero = () => {
   return (
     <div className='py-36 text-center space-y-5'>
 
-  <h1 className= "font-black p-8 lg:text-[40px] sm:text-[30px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2"> All in one AI platfom for <br /> &nbsp; 
+  <h1 className= "font-black p-8 lg:text-[40px] sm:text-[30px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2"> All in one AI platform for <br /> &nbsp; 
   <span className='lg:text-[80px] sm:text-[40px] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>{text}</span></h1>
    
     <div className='text-sm md:text-xl font-light'>
