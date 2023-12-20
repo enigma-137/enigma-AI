@@ -18,12 +18,12 @@ const SettingPage =()=> {
          <div className="flex text-center justify-center ">
          <Button className="mx-4 bg-blue-600" size="lg"> 
             
-            <Link href="https://wa.me/2349053386778" target="_blank"><Twitter className=" h-4 w-5" />   </Link> 
+            <Link href="https://twitter.com/enigma137x" target="_blank"><Twitter className=" h-4 w-5" />   </Link> 
            
             </Button>
             <Button className="mx-4 bg-green-800" size="lg"> 
             
-            <Link href="https://twitter.com/enigma137x" target="_blank"><PhoneCall className="h-4 w-5" />   </Link> 
+            <Link href="https://wa.me/2349053386778" target="_blank"><PhoneCall className="h-4 w-5" />   </Link> 
            
             </Button>
          </div>

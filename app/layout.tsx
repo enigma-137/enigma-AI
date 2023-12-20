@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  manifest: "/manifest.json",
   title: 'Enigma',
   description: 'AI PLATFORM',
 }
@@ -38,3 +39,4 @@ export default function RootLayout({
 
   )
 }
+
