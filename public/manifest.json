@@ -3,8 +3,8 @@
   "name": "Enigma",
   "short_name": "Enigma Ai",
 
-  "theme_color": "#6902A0 ",
-  "background_color": "#6902A0 ",
+  "theme_color": "#000000 ",
+  "background_color": "#000000 ",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
