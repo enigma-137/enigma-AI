@@ -146,7 +146,7 @@ const Adscopy = () => {
 
                   <CopyToClipboard text={message.content} onCopy={handleCopyToClipboard}>
                    
-                      {copied ? <CopyCheck /> : <Copy />}
+                      {copied ? <CopyCheck className="h-24 w-24" /> : <Copy className="h-24 w-24" />}
                     
                   </CopyToClipboard>
                 </div>
