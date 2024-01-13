@@ -12,7 +12,9 @@ const landingPage = () => {
 
        <div className="bottom-0 text-center lg:text-center pt-4">
         <p className="pb-0 mb-0  text-sm text-center">
-          An Experiment by <a href='https://twitter.com/enigma137x' target="_blank" className='font-bold text-purple-500'>Enigma</a>
+          An Experiment by <a href='https://twitter.com/enigma137x' target="_blank" className='font-bold text-purple-500'>Enigma{ " " }
+          </a>
+       &copy; {new Date().getFullYear()}
         </p>
       </div>
     </div>
